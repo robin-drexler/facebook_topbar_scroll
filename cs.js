@@ -1,26 +1,12 @@
 $(function() {
-    var matched = false;
-    var $wnd = $(window);
-    var $firstInput = $($('input[type=text], input[type=search]')[0]);
-    var selectors = [
-        ['amazon.', '#twotabsearchtextbox'],
-    ]
+    $blueBar = $('#blueBar');
+    $headNav = $('#headNav');
     
-    var $scrollLeft = $wnd.scrollLeft();
-    var $scrollTop  = $wnd.scrollTop();
-    
-    for(i in selectors) {
-        if(location.href.match(selectors[i][0])) {
-            matched = true;
-            if(typeof selectors[i][1] == 'string') {
-                $(selectors[i][1]).focus();
-            } 
+    $blueBar.click(function(e) {
+        $target = $(event.target);
+       
+        if($target.is($blueBar) || $target.is($headNav)) {
+            $("body,html").animate({scrollTop: 0}, 500);
         }
-    }
-    
-    if(!matched) {
-        $firstInput.focus();
-    }
-    $wnd.scrollTop($scrollTop).scrollLeft($scrollLeft);
-    
+    });
 });
