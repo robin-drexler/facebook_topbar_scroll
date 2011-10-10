@@ -6,7 +6,7 @@ $(function() {
         $target = $(event.target);
        
         if($target.is($blueBar) || $target.is($headNav)) {
-            $("body,html").animate({scrollTop: 0}, 500);
+            $("body,html").animate({scrollTop: 0}, 250);
         }
     });
 });
